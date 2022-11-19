@@ -1,0 +1,16 @@
+Problem Statement: You will have different types of employees in the organization and their salaries. You have to
+return the tax paid by the employee.
+
+Rules to pay tax:
+1. Full time employees:
+    30% professional tax
+    3% EC
+    2% standard tax
+
+2. Interns:
+    20% professional tax
+
+3. Part time employees:
+    20% professional tax
+    5% GST
+    2% standard tax
