@@ -1,12 +1,24 @@
 package Problem1.models;
 
+import Problem1.enums.EmployeeType;
+
 public abstract class Employee {
     private String id;
     private String name;
     private String email;
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
     private String contact;
     private String address;
     private Double salary;
+    private EmployeeType employeeType;
+
+    public Employee(EmployeeType employeeType){
+        this.employeeType = employeeType;
+    }
 
     public String getId() {
         return id;
