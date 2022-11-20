@@ -16,5 +16,6 @@ public class Main {
         System.out.println(TaxCalculatorFactory.getTaxCalculator(employee1).calculateTax(employee1));
         System.out.println(TaxCalculatorFactory.getTaxCalculator(employee2).calculateTax(employee2));
         System.out.println(TaxCalculatorFactory.getTaxCalculator(employee3).calculateTax(employee3));
+
     }
 }
