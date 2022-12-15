@@ -13,20 +13,19 @@ public class Main {
         Game game = Game.getBuilder()
                 .addPlayer(
                         PlayerFactory.createHumanPlayer()
-                        .setUser(new User())
-                        .setSymbol('O')
-                        .build()
-                )
+                            .setUser(new User())
+                            .setSymbol('O')
+                            .build())
                 .addPlayer(
                         PlayerFactory.createBot()
-                                .setMoveStrategy(new RandomMoveStrategy())
-                                .setSymbol('X')
-                                .build()
-                )
+                            .setMoveStrategy(new RandomMoveStrategy())
+                            .setSymbol('X')
+                            .build())
                 .addWinningStrategy(new DefaultWinningStrategy())
                 .setRows(3)
                 .setColumns(3)
                 .build();
+
         GameController.run(game);
     }
 }
