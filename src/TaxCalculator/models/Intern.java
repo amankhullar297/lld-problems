@@ -1,6 +1,6 @@
-package Problem1.models;
+package TaxCalculator.models;
 
-import Problem1.enums.EmployeeType;
+import TaxCalculator.enums.EmployeeType;
 
 public class Intern extends Employee{
     private String collegeName;

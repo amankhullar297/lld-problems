@@ -1,6 +1,6 @@
-package Problem1.interfaces;
+package TaxCalculator.interfaces;
 
-import Problem1.models.Employee;
+import TaxCalculator.models.Employee;
 
 public interface TaxCalculator {
     Double calculateTax(Employee employee);

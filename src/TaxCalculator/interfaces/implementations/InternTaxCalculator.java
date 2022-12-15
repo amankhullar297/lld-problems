@@ -1,7 +1,7 @@
-package Problem1.interfaces.implementations;
+package TaxCalculator.interfaces.implementations;
 
-import Problem1.interfaces.TaxCalculator;
-import Problem1.models.Employee;
+import TaxCalculator.interfaces.TaxCalculator;
+import TaxCalculator.models.Employee;
 
 public enum InternTaxCalculator implements TaxCalculator {
     INSTANCE;

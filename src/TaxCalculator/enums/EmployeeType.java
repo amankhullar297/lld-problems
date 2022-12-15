@@ -1,4 +1,4 @@
-package Problem1.enums;
+package TaxCalculator.enums;
 
 public enum EmployeeType {
     FULL_TIME,

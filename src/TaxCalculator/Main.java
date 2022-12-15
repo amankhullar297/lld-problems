@@ -1,6 +1,6 @@
-package Problem1;
-import Problem1.factories.TaxCalculatorFactory;
-import Problem1.models.*;
+package TaxCalculator;
+import TaxCalculator.factories.TaxCalculatorFactory;
+import TaxCalculator.models.*;
 
 public class Main {
     public static void main(String[] args) {

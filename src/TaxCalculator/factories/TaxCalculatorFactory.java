@@ -1,10 +1,10 @@
-package Problem1.factories;
+package TaxCalculator.factories;
 
-import Problem1.interfaces.TaxCalculator;
-import Problem1.interfaces.implementations.FullTimeEmployeeTaxCalculator;
-import Problem1.interfaces.implementations.InternTaxCalculator;
-import Problem1.interfaces.implementations.PartTimeEmployeeTaxCalculator;
-import Problem1.models.Employee;
+import TaxCalculator.interfaces.TaxCalculator;
+import TaxCalculator.interfaces.implementations.FullTimeEmployeeTaxCalculator;
+import TaxCalculator.interfaces.implementations.InternTaxCalculator;
+import TaxCalculator.interfaces.implementations.PartTimeEmployeeTaxCalculator;
+import TaxCalculator.models.Employee;
 
 public class TaxCalculatorFactory {
     public static TaxCalculator getTaxCalculator(Employee employee){
