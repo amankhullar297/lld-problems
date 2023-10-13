@@ -7,10 +7,10 @@ import LRUCache.repositories.CacheRepository;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class InMemoryCacheRepository<K, V> implements CacheRepository<K, V> {
+public class LinkedHashMapCacheRepository<K, V> implements CacheRepository<K, V> {
     private LinkedHashMap<K, V> cache = null;
 
-    public InMemoryCacheRepository(int size){
+    public LinkedHashMapCacheRepository(int size){
         cache = new LinkedHashMap<K, V>(size, 0.75f, true){
             @Override
             protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {

@@ -2,7 +2,6 @@ package LRUCache;
 
 import LRUCache.repositories.CacheRepository;
 import LRUCache.repositories.implementations.DoublyLinkedListCacheRepository;
-import LRUCache.repositories.implementations.InMemoryCacheRepository;
 import LRUCache.services.CacheService;
 import LRUCache.services.implementations.LRUCacheService;
 
