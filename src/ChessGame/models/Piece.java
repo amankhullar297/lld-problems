@@ -5,7 +5,7 @@ public class Piece {
     private Position currentPosition;
     private PieceColour colour;
 
-    Piece(PieceType pieceType, PieceColour pieceColour, Position currentPosition){
+    public Piece(PieceType pieceType, PieceColour pieceColour, Position currentPosition){
         this.type = pieceType;
         this.colour = pieceColour;
         this.currentPosition = currentPosition;

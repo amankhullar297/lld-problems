@@ -1,0 +1,21 @@
+package ChessGame.services.implementations;
+
+import ChessGame.factories.PieceStrategyFactory;
+import ChessGame.models.Board;
+import ChessGame.models.Piece;
+import ChessGame.models.Position;
+import ChessGame.strategies.PieceMovementStrategy;
+
+public class MovementServiceImpl implements MovementService{
+    @Override
+    public boolean isValid(Board board, Piece piece, Position to) {
+        PieceMovementStrategy pieceMovementStrategy = PieceStrategyFactory.getPieceStrategy(piece.getType());
+        return pieceMovementStrategy.validMove(board, piece.getCurrentPosition(), to);
+    }
+
+    @Override
+    public void move(Board board, Piece piece, Position to) {
+        PieceMovementStrategy pieceMovementStrategy = PieceStrategyFactory.getPieceStrategy(piece.getType());
+        pieceMovementStrategy.move(board, piece, to);
+    }
+}

@@ -10,4 +10,16 @@ public class Game {
         this.player2 = player2;
         this.board = new Board();
     }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
 }
