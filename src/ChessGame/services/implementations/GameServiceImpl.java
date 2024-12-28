@@ -5,7 +5,12 @@ import ChessGame.services.GameService;
 import ChessGame.services.MovementService;
 
 public class GameServiceImpl implements GameService {
-    private MovementService movementService;
+    private final MovementService movementService;
+
+    GameServiceImpl(MovementService movementService){
+        this.movementService = movementService;
+    }
+
 
     @Override
     public Game startNewGame(Player player1, Player player2) {
