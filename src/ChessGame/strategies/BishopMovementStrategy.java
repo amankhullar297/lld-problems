@@ -1,8 +1,11 @@
 package ChessGame.strategies;
 
+import ChessGame.exceptions.InvalidMoveException;
 import ChessGame.models.Board;
 import ChessGame.models.Piece;
 import ChessGame.models.Position;
+
+import java.io.IOException;
 
 public class BishopMovementStrategy implements PieceMovementStrategy{
 
@@ -15,11 +18,12 @@ public class BishopMovementStrategy implements PieceMovementStrategy{
     }
 
     @Override
-    public void move(Board board, Piece piece, Position to) {
+    public void move(Board board, Piece piece, Position to) throws IOException {
         if(validMove(board, piece.getCurrentPosition(), to)) {
             board.getPieces()[piece.getCurrentPosition().getRow()][piece.getCurrentPosition().getColumn()] = null;
             piece.setCurrentPosition(to);
             board.getPieces()[to.getRow()][to.getColumn()] = piece;
-        }
+        }else
+            throw new InvalidMoveException("Move is invalid");
     }
 }

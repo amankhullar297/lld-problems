@@ -1,9 +1,12 @@
 package ChessGame.services.implementations;
 
 import ChessGame.exceptions.InvalidMoveException;
+import ChessGame.exceptions.InvalidPlayerException;
 import ChessGame.models.*;
 import ChessGame.services.GameService;
 import ChessGame.services.MovementService;
+
+import java.io.IOException;
 
 public class GameServiceImpl implements GameService {
     private final MovementService movementService;
@@ -20,9 +23,9 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void move(Game game, Player player, Piece piece, Position to) throws InvalidMoveException {
+    public void move(Game game, Player player, Piece piece, Position to) throws IOException {
         if(nextTurn(game) != player)
-            throw  new InvalidMoveException("");
+            throw  new InvalidPlayerException("Invalid player's moving the piece..");
         movementService.move(game.getBoard(), piece, to);
     }
 
