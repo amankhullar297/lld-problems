@@ -11,19 +11,9 @@ Design Chessboard:
 # Piece Movement:
 1. Implement movement rules for each type of chess piece (e.g., Pawn, Rook, Knight, Bishop, Queen, King).
 
-# Handle special moves:
-1. Castling.
-2. En Passant.
-3. Pawn Promotion.
-
 # Move Validation:
-
 1. Ensure moves are valid according to chess rules.
 2. Prevent illegal moves, such as placing one's own king in check.
-
-# Game States:
-1. Detect and handle check, checkmate, stalemate, and draw conditions.
-2. Allow restarting or pausing the game.
 
 #Turn Management:
 1. Enforce alternate turns between players.

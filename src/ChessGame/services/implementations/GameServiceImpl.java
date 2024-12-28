@@ -1,5 +1,6 @@
 package ChessGame.services.implementations;
 
+import ChessGame.exceptions.InvalidMoveException;
 import ChessGame.models.*;
 import ChessGame.services.GameService;
 import ChessGame.services.MovementService;
@@ -11,7 +12,6 @@ public class GameServiceImpl implements GameService {
         this.movementService = movementService;
     }
 
-
     @Override
     public Game startNewGame(Player player1, Player player2) {
         Game game = new Game(player1, player2);
@@ -20,8 +20,15 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void move(Game game, Player player, Piece piece, Position to) {
+    public void move(Game game, Player player, Piece piece, Position to) throws InvalidMoveException {
+        if(nextTurn(game) != player)
+            throw  new InvalidMoveException("");
         movementService.move(game.getBoard(), piece, to);
+    }
+
+    @Override
+    public Player nextTurn(Game game) {
+        return game.getTurn() == game.getPlayer1() ? game.getPlayer2() : game.getPlayer1();
     }
 
     private void initializeBoard(Game game){
