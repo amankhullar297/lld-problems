@@ -15,23 +15,10 @@ Design Chessboard:
 1. Ensure moves are valid according to chess rules.
 2. Prevent illegal moves, such as placing one's own king in check.
 
-#Turn Management:
+# Turn Management:
 1. Enforce alternate turns between players.
 2. Indicate whose turn it is.
 
-#Game Display:
-1. Display the chessboard and all pieces dynamically based on game progress.
-2. Highlight valid moves for the selected piece.
-3. Show captured pieces for both players.
-4. Game End Conditions:
-
-# Support various end scenarios:
-1. Checkmate.
-2. Stalemate.
-3. Draw by repetition or insufficient material.
-4. 50-move rule.
-
-#Optional Features:
-
+# Optional Features:
 1. Undo and redo moves.
 2. Save and load game progress.
