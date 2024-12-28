@@ -2,13 +2,21 @@ package ChessGame.services.implementations;
 
 import ChessGame.models.*;
 import ChessGame.services.GameService;
+import ChessGame.services.MovementService;
 
 public class GameServiceImpl implements GameService {
+    private MovementService movementService;
+
     @Override
     public Game startNewGame(Player player1, Player player2) {
         Game game = new Game(player1, player2);
         initializeBoard(game);
         return game;
+    }
+
+    @Override
+    public void move(Game game, Player player, Piece piece, Position to) {
+        movementService.move(game.getBoard(), piece, to);
     }
 
     private void initializeBoard(Game game){

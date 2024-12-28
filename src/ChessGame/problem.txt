@@ -1,4 +1,4 @@
-Chessboard Setup:
+Design Chessboard:
 
 1. Represent an 8x8 grid with alternating light and dark squares.
 2. Place pieces in their standard initial positions.

@@ -4,9 +4,10 @@ import ChessGame.factories.PieceStrategyFactory;
 import ChessGame.models.Board;
 import ChessGame.models.Piece;
 import ChessGame.models.Position;
+import ChessGame.services.MovementService;
 import ChessGame.strategies.PieceMovementStrategy;
 
-public class MovementServiceImpl implements MovementService{
+public class MovementServiceImpl implements MovementService {
     @Override
     public boolean isValid(Board board, Piece piece, Position to) {
         PieceMovementStrategy pieceMovementStrategy = PieceStrategyFactory.getPieceStrategy(piece.getType());

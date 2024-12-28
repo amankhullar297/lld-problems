@@ -1,4 +1,4 @@
-package ChessGame.services.implementations;
+package ChessGame.services;
 
 import ChessGame.models.Board;
 import ChessGame.models.Position;
