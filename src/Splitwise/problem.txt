@@ -1,0 +1,11 @@
+Design Splitwise.
+Splitwise helps groups of people track shared expenses and settle debts easily. It's commonly used among friends,
+roommates, coworkers, or anyone splitting costs for shared activities like trips, meals, or household expenses.
+
+Requirements:
+1. Register/login Users.
+2. Users can add expenses.
+3. Users can edit expenses.
+4. Also, users can settle expenses.
+5. Allow users to make groups and add, edit and settle expenses in the group.
+6. Enable/disable simplified group expense feature.
