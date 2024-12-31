@@ -1,11 +1,13 @@
 package Splitwise.models;
 
 public class ExpenseSplit {
-    private String userId;
+    private String from;
+    private String to;
     private float amount;
 
-    public ExpenseSplit(String userId, float amount) {
-        this.userId = userId;
+    public ExpenseSplit(String from, String to, float amount) {
+        this.from = from;
+        this.to = to;
         this.amount = amount;
     }
 }

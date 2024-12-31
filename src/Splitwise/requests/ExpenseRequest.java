@@ -14,8 +14,8 @@ public class ExpenseRequest {
     private String description;
     private Map<User, Float> owedBy = new HashMap<>();
     private List<User> owedTo = new ArrayList<>();
-    private Map<String, Float> percentage = new HashMap<>();
-    private Map<String, Float> split = new HashMap<>();
+    private Map<User, Float> percentage = new HashMap<>();
+    private Map<User, Float> split = new HashMap<>();
 
     public void setType(ExpenseType type) {
         this.type = type;
@@ -33,20 +33,8 @@ public class ExpenseRequest {
         this.owedTo = owedTo;
     }
 
-    public Map<String, Float> getPercentage() {
+    public Map<User, Float> getPercentage() {
         return percentage;
-    }
-
-    public void setPercentage(Map<String, Float> percentage) {
-        this.percentage = percentage;
-    }
-
-    public Map<String, Float> getSplit() {
-        return split;
-    }
-
-    public void setSplit(Map<String, Float> split) {
-        this.split = split;
     }
 
     public ExpenseType getType() {
@@ -71,5 +59,17 @@ public class ExpenseRequest {
 
     public void setOwedBy(Map<User, Float> owedBy) {
         this.owedBy = owedBy;
+    }
+
+    public void setPercentage(Map<User, Float> percentage) {
+        this.percentage = percentage;
+    }
+
+    public Map<User, Float> getSplit() {
+        return split;
+    }
+
+    public void setSplit(Map<User, Float> split) {
+        this.split = split;
     }
 }
