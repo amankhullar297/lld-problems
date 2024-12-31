@@ -4,26 +4,49 @@ import Splitwise.models.Expense;
 import Splitwise.repositories.GroupExpenseRepository;
 import Splitwise.requests.ExpenseRequest;
 import Splitwise.services.GroupExpenseService;
+import Splitwise.services.GroupExpenseSplitService;
+
+import java.util.UUID;
 
 public class GroupExpenseServiceImpl implements GroupExpenseService {
     private final GroupExpenseRepository groupExpenseRepository;
+    private final GroupExpenseSplitService groupExpenseSplitService;
 
-    public GroupExpenseServiceImpl(GroupExpenseRepository groupExpenseRepository) {
+    public GroupExpenseServiceImpl(GroupExpenseRepository groupExpenseRepository, GroupExpenseSplitService groupExpenseSplitService) {
         this.groupExpenseRepository = groupExpenseRepository;
+        this.groupExpenseSplitService = groupExpenseSplitService;
     }
 
     @Override
     public Expense add(String groupId, ExpenseRequest expenseRequest) {
-        return null;
+        Expense expense = new Expense();
+        expense.setAmount(expenseRequest.getAmount());
+        expense.setDescription(expenseRequest.getDescription());
+        expense.setId(UUID.randomUUID().toString());
+        expense.setType(expenseRequest.getType());
+
+        groupExpenseSplitService.addUserGroupExpenseSplits(groupId, expenseRequest);
+        return groupExpenseRepository.add(groupId, expense);
     }
 
     @Override
     public Expense update(String groupId, String expenseId, ExpenseRequest expenseRequest) {
-        return null;
+        Expense expense = groupExpenseRepository.get(groupId, expenseId);
+        expense.setAmount(expenseRequest.getAmount());
+        expense.setDescription(expenseRequest.getDescription());
+        expense.setId(UUID.randomUUID().toString());
+        expense.setType(expenseRequest.getType());
+
+        groupExpenseSplitService.updateUserGroupExpenseSplits(groupId, expenseId, expenseRequest);
+        return groupExpenseRepository.update(groupId, expenseId, expense);
     }
 
     @Override
-    public Expense remove(String groupId, String expenseId, ExpenseRequest expenseRequest) {
-        return null;
+    public boolean remove(String groupId, String expenseId) {
+        Expense expense = groupExpenseRepository.get(groupId, expenseId);
+        // todo; check whether expense is non null else throw exception
+
+        groupExpenseSplitService.removeUserGroupExpenseSplits(groupId, expenseId);
+        return groupExpenseRepository.remove(groupId, expenseId);
     }
 }

@@ -42,7 +42,11 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public Expense remove(String expenseId) {
-        return null;
+    public boolean remove(String expenseId) {
+        Expense expense = expenseRepository.get(expenseId);
+        // todo; check whether expense is non null else throw exception
+
+        expenseSplitService.removeUserExpenseSplits(expenseId);
+        return expenseRepository.remove(expenseId);
     }
 }
