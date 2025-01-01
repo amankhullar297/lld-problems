@@ -1,5 +1,7 @@
 package Splitwise.services.implementations;
 
+import Splitwise.exceptions.ExpenseNotFoundException;
+import Splitwise.exceptions.SplitwiseBaseException;
 import Splitwise.models.Expense;
 import Splitwise.repositories.ExpenseRepository;
 import Splitwise.requests.ExpenseRequest;
@@ -30,8 +32,11 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public Expense update(String expenseId, ExpenseRequest expenseRequest) {
+    public Expense update(String expenseId, ExpenseRequest expenseRequest) throws SplitwiseBaseException {
         Expense expense = expenseRepository.get(expenseId);
+        if(expense == null)
+            throw new ExpenseNotFoundException(String.format("No expense exists with given expense id %s", expenseId));
+
         expense.setAmount(expenseRequest.getAmount());
         expense.setDescription(expenseRequest.getDescription());
         expense.setId(UUID.randomUUID().toString());
@@ -42,9 +47,10 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public boolean remove(String expenseId) {
+    public boolean remove(String expenseId) throws SplitwiseBaseException {
         Expense expense = expenseRepository.get(expenseId);
-        // todo; check whether expense is non null else throw exception
+        if(expense == null)
+            throw new ExpenseNotFoundException(String.format("No expense exists with given expense id %s", expenseId));
 
         expenseSplitService.removeUserExpenseSplits(expenseId);
         return expenseRepository.remove(expenseId);

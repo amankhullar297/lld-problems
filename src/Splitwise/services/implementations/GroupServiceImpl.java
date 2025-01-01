@@ -1,5 +1,7 @@
 package Splitwise.services.implementations;
 
+import Splitwise.exceptions.GroupNotFoundException;
+import Splitwise.exceptions.SplitwiseBaseException;
 import Splitwise.models.Group;
 import Splitwise.repositories.GroupRepository;
 import Splitwise.requests.GroupRequest;
@@ -27,13 +29,19 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public Group get(String groupId) {
-        return groupRepository.get(groupId);
+    public Group get(String groupId) throws SplitwiseBaseException {
+        Group group = groupRepository.get(groupId);
+        if(group == null)
+                throw new GroupNotFoundException(String.format("No group exists with given group id %s", groupId));
+        return group;
     }
 
     @Override
-    public Group update(String groupId, GroupRequest groupRequest) {
+    public Group update(String groupId, GroupRequest groupRequest) throws SplitwiseBaseException {
         Group group = groupRepository.get(groupId);
+        if(group == null)
+            throw new GroupNotFoundException(String.format("No group exists with given group id %s", groupId));
+
         group.setId(UUID.randomUUID().toString());
         group.setDescription(groupRequest.getDescription());
         group.setName(groupRequest.getName());

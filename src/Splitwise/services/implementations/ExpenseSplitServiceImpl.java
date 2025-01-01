@@ -30,8 +30,6 @@ public class ExpenseSplitServiceImpl implements ExpenseSplitService {
     @Override
     public boolean removeUserExpenseSplits(String expenseId) {
         List<ExpenseSplit> expenseSplits = expenseSplitRepository.get(expenseId);
-        // todo: check if expenseSplits actually present else throw exception.
-
         return expenseSplitRepository.remove(expenseId);
     }
 }

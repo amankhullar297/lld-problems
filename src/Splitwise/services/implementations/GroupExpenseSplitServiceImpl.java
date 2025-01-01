@@ -29,8 +29,6 @@ public class GroupExpenseSplitServiceImpl implements GroupExpenseSplitService {
     @Override
     public boolean removeUserGroupExpenseSplits(String groupId, String expenseId) {
         List<ExpenseSplit> expenseSplits = groupExpenseSplitRepository.get(groupId, expenseId);
-        // todo: check if expenseSplits actually present else throw exception.
-
         return groupExpenseSplitRepository.remove(groupId, expenseId);
     }
 }
