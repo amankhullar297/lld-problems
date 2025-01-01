@@ -5,6 +5,8 @@ import Splitwise.repositories.UserRepository;
 import Splitwise.requests.UserRequest;
 import Splitwise.services.UserService;
 
+import java.util.UUID;
+
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
@@ -14,6 +16,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User add(UserRequest userRequest) {
-        return userRepository.add(userRequest);
+        User user = new User();
+        user.setId(UUID.randomUUID().toString());
+        user.setEmail(userRequest.getEmail());
+        user.setContact(userRequest.getContact());
+        user.setName(userRequest.getName());
+
+        return userRepository.add(user);
     }
 }
